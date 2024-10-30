@@ -1,13 +1,13 @@
 # merkle-lite
 
-[![CI](https://github.com/keithnoguchi/merkle-lite/actions/workflows/ci.yml/badge.svg)](
-https://github.com/keithnoguchi/merkle-lite/actions)
-[![License](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue.svg)](
-https://github.com/keithnoguchi/merkle-lite)
-[![Cargo](https://img.shields.io/crates/v/merkle-lite.svg)](
-https://crates.io/crates/merkle-lite)
-[![Documentation](https://docs.rs/merkle-lite/badge.svg)](
-https://docs.rs/merkle-lite)
+## Credits
+
+This project is a fork from the [merkle-lite](https://github.com/keithnoguchi/merkle-lite) crate by @keithnoguchi, with modifications to align with behavior in Solidity-based Merkle tree libraries. Modifications were made by @dralves.
+
+[![CI](https://github.com/keithnoguchi/merkle-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/keithnoguchi/merkle-lite/actions)
+[![License](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue.svg)](https://github.com/keithnoguchi/merkle-lite)
+[![Cargo](https://img.shields.io/crates/v/merkle-lite.svg)](https://crates.io/crates/merkle-lite)
+[![Documentation](https://docs.rs/merkle-lite/badge.svg)](https://docs.rs/merkle-lite)
 
 A simple, fast, and composable binary [Merkle tree and proof]
 for [Rust Crypto] hash functions.
@@ -51,8 +51,8 @@ assert_eq!(
 
 Licensed under either of
 
- * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
 
