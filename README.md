@@ -2,7 +2,7 @@
 
 ## Credits
 
-This project is a fork from the [merkle-lite](https://github.com/keithnoguchi/merkle-lite) crate by @keithnoguchi, with modifications to align with behavior in Solidity-based Merkle tree libraries. Modifications were made by @dralves.
+This project is a fork from the [merkle-lite](https://github.com/keithnoguchi/merkle-lite) crate by [@keithnoguchi](https://github.com/keithnoguchi), with modifications to align with behavior in Solidity-based Merkle tree libraries. Modifications were made by [@dralves](https://github.com/dralves).
 
 [![CI](https://github.com/keithnoguchi/merkle-lite/actions/workflows/ci.yml/badge.svg)](https://github.com/keithnoguchi/merkle-lite/actions)
 [![License](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue.svg)](https://github.com/keithnoguchi/merkle-lite)
