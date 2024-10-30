@@ -626,7 +626,7 @@ where
     /// The last entry of the vector, e.g. lemmans[lemmas.len() - 1],
     /// will be used as a Merkle root cache for the Merkle proof
     /// verification.
-    lemmas: Vec<BTreeMap<NodeIndex, NodeData<B>>>,
+    pub lemmas: Vec<BTreeMap<NodeIndex, NodeData<B>>>,
 }
 
 impl<B> Debug for MerkleProof<B>
@@ -1190,7 +1190,7 @@ impl NodeIndexRange {
 
 /// A node index.
 #[derive(Copy, Clone, Debug, Default, Eq, PartialEq, Ord, PartialOrd)]
-struct NodeIndex(usize);
+pub struct NodeIndex(usize);
 
 impl Deref for NodeIndex {
     type Target = usize;
@@ -1265,7 +1265,7 @@ impl NodeIndex {
 ///
 /// [`digest::Output`]: https://docs.rs/digest/latest/digest/type.Output.html
 #[derive(Copy, Debug)]
-struct NodeData<B>(Option<digest::Output<B>>)
+pub struct NodeData<B>(Option<digest::Output<B>>)
 where
     B: OutputSizeUser,
     Buffer<B>: Copy;
