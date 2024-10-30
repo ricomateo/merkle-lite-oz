@@ -784,7 +784,10 @@ where
                 },
             };
             let mut hasher = B::new();
-            if index.is_right(&self.level_range) {
+            // This comparison is the only place where the order of the siblings matters and is
+            // changed from the original implementation.
+            // This comparison is required to match the Ethereum Merkle tree ordering.
+            if data.0.cmp(&sibling.0).is_lt() {
                 hasher.update(sibling);
                 hasher.update(data);
             } else {
@@ -943,8 +946,16 @@ where
         let mut parent_index = 0;
         for pair in siblings.clone() {
             let mut hasher = B::new();
-            for child in pair {
-                hasher.update(child);
+
+            // This comparison is the only place where the order of the siblings matters and is
+            // changed from the original implementation.
+            // This comparison is required to match the Ethereum Merkle tree ordering.
+            if pair[0].0.cmp(&pair[1].0).is_lt() {
+                hasher.update(&pair[0]);
+                hasher.update(&pair[1]);
+            } else {
+                hasher.update(&pair[1]);
+                hasher.update(&pair[0]);
             }
             parents[parent_index] = NodeData::from(hasher.finalize());
             parent_index += 1;
@@ -1013,8 +1024,17 @@ where
         for index in self.changed_set.iter() {
             let sibling = index.sibling(&self.level_range).unwrap();
             let mut hasher = B::new();
-            hasher.update(&current[**index]);
-            hasher.update(&current[*sibling]);
+
+            // This comparison is the only place where the order of the siblings matters and is
+            // changed from the original implementation.
+            // This comparison is required to match the Ethereum Merkle tree ordering.
+            if current[**index].0.cmp(&current[*sibling].0).is_lt() {
+                hasher.update(&current[**index]);
+                hasher.update(&current[*sibling]);
+            } else {
+                hasher.update(&current[*sibling]);
+                hasher.update(&current[**index]);
+            }
             let parent = index.parent(&self.level_range).unwrap();
             next[*parent] = NodeData::from(hasher.finalize());
             next_set.insert(parent, &self.level_range);
